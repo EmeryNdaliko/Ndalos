@@ -1,0 +1,225 @@
+Expanded(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            //MediaQuery(data: data, child: child)
+            Container(
+              height: 200,
+              width: 250,
+              color: const Color.fromARGB(255, 5, 47, 82),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                      height: 150,
+                      width: 150,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          // const Color.fromARGB(255, 5, 47, 82),
+                          borderRadius: BorderRadius.circular(80))),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    height: 40,
+                    width: 150,
+                    color: const Color.fromARGB(255, 5, 47, 82),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "Sale",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Text(
+                          "Petro",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    height: 450,
+                    width: 240,
+                    color: const Color.fromARGB(255, 5, 47, 82),
+                    // const Color.fromARGB(255, 5, 47, 82),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 45,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Acceuil()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: const StadiumBorder(),
+                            fixedSize: const Size(200, 45),
+                            // backgroundColor:
+                            //     const Color.fromARGB(255, 208, 28, 28),
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.blue,
+                          ),
+                          child: const Text(
+                            "Acceuil", // gestion des utlisateur
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            shape: const StadiumBorder(),
+                            fixedSize: const Size(200, 45),
+                            // backgroundColor:
+                            //     const Color.fromARGB(255, 208, 28,ain de 28),
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.blue,
+                          ),
+                          child: const Text(
+                            "Fournisseur",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            shape: const StadiumBorder(),
+                            fixedSize: const Size(200, 45),
+                            // backgroundColor:
+                            //     const Color.fromARGB(255, 208, 28, 28),
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.blue,
+                          ),
+                          child: const Text(
+                            "Gestion de Stock", // suivie  entre & sotrie / gestion de vente/ tableau de bord
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            shape: const StadiumBorder(),
+                            fixedSize: const Size(200, 45),
+                            // backgroundColor:
+                            //     const Color.fromARGB(255, 208, 28, 28),
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.blue,
+                          ),
+                          child: const Text(
+                            "Rapport", // Et analyse
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 90,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 70),
+                          height: 45,
+                          width: 185,
+                          color: const Color.fromARGB(255, 5, 47, 82),
+                          child: const Text(
+                            "Version 1.0.0",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 200,
+              width: 1030,
+              color: Colors.white,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 70,
+                    width: 1030,
+                    color: Colors.blueAccent,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(
+                          width: 880,
+                        ),
+                        ElevatedButton.icon(
+                            onPressed: () {},
+                            style:
+                                const ButtonStyle(alignment: Alignment.center),
+                            icon: const Icon(Icons.settings),
+                            label: const Text("Parametre")),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 140,
+                    width: 1280,
+                    color: Colors.blueGrey,
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        height: 456,
+                        width: 1280,
+                        color: Colors.amber,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
