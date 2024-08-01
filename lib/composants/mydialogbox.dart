@@ -1,13 +1,12 @@
 import 'package:essence_app/constantes/export.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class Mydialogbox extends StatefulWidget {
-  VoidCallback? onPressed;
+  final VoidCallback? onPressed;
   final TextEditingController? nomControler;
   final TextEditingController? prenomControler;
   final TextEditingController? emailControler;
-  Mydialogbox({
+  const Mydialogbox({
     super.key,
     this.nomControler,
     this.prenomControler,

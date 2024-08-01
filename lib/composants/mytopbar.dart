@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Mytopbar extends StatelessWidget {
-  const Mytopbar({super.key});
+  final String title;
+  final List<Widget> action;
+  const Mytopbar({
+    super.key,
+    required this.title,
+    required this.action,
+  });
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,33 +20,15 @@ class Mytopbar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Utilisateurs',
+              Text(
+                title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.notifications_active),
-                    tooltip: "Notification",
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.settings),
-                  ),
-                  // IconButton(
-                  //   icon: const Row(
-                  //     children: [Icon(Icons.person_add_sharp), Text("Ajouter")],
-                  //   ),
-                  //   onPressed: () {},
-                  // )
-                ],
-              )
+              Row(children: action)
             ],
           ),
         ),

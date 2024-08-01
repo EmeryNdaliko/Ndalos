@@ -2,6 +2,29 @@ import 'package:essence_app/constantes/export.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/material.dart';
 
+List<Map<String, String>> users = [
+  {
+    "nom": "Emery",
+    "prenom": 'ndaliko',
+    "email": "emeryndalos@gmail.com",
+  },
+  {
+    "prenom": 'lionel',
+    "email": "lionel@gmail.com",
+    "nom": "lionel",
+  },
+  {
+    "prenom": 'muisa',
+    "email": "winner@gmail.com",
+    "nom": "tsongo",
+  },
+  {
+    "nom": "proms",
+    "prenom": 'ndaliko',
+    "email": "promsndal@gmail.com",
+  }
+];
+
 class Utisateurs extends StatefulWidget {
   const Utisateurs({super.key});
 
@@ -13,28 +36,6 @@ class _UtisateursState extends State<Utisateurs> {
   final nomControler = TextEditingController();
   final prenomControler = TextEditingController();
   final emailControler = TextEditingController();
-  List<Map<String, String>> users = [
-    {
-      "nom": "Emery",
-      "prenom": 'ndaliko',
-      "email": "emeryndalos@gmail.com",
-    },
-    {
-      "prenom": 'lionel',
-      "email": "lionel@gmail.com",
-      "nom": "lionel",
-    },
-    {
-      "prenom": 'muisa',
-      "email": "winner@gmail.com",
-      "nom": "tsongo",
-    },
-    {
-      "nom": "proms",
-      "prenom": 'ndaliko',
-      "email": "promsndal@gmail.com",
-    }
-  ];
 
 // add new user
   void addUser(Map<String, String> user) {
@@ -78,7 +79,20 @@ class _UtisateursState extends State<Utisateurs> {
         state: true,
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           // barre haute
-          const Mytopbar(),
+          Mytopbar(
+            title: "Utilisateurs",
+            action: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.notifications_active),
+                tooltip: "Notification",
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.settings),
+              ),
+            ],
+          ),
           Row(
             children: <Widget>[
               Container(
