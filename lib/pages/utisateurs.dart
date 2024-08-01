@@ -33,7 +33,7 @@ class _UtisateursState extends State<Utisateurs> {
       "nom": "proms",
       "prenom": 'ndaliko',
       "email": "promsndal@gmail.com",
-    },
+    }
   ];
 
 // add new user
@@ -64,6 +64,7 @@ class _UtisateursState extends State<Utisateurs> {
                     addUser(newUser);
                   });
                   Navigator.pop(context);
+                  formkey.currentState!.reset();
                 }
               },
             ),
@@ -128,45 +129,50 @@ class _UtisateursState extends State<Utisateurs> {
               )
             ],
           ),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(20),
-            // color: Colors.blue,
-            child: SingleChildScrollView(
-              child: DataTable(
-                  showCheckboxColumn: true,
-                  showBottomBorder: true,
-                  columnSpacing: 5,
-                  columns: const [
-                    'Profil',
-                    'Nom',
-                    'Prenom',
-                    'Email',
-                    'Edit'
-                  ] //table headings
-                      .map(
-                        (e) => DataColumn(label: Text(e)),
-                      )
-                      .toList(),
-                  rows: users
-                      .map(
-                        (e) => DataRow(
-                          cells: [
-                            //table row cells values
-                            const DataCell(Icon(Icons.person)),
-                            DataCell(Text(e['nom'].toString())),
-                            DataCell(Text(e['prenom'].toString())),
-                            DataCell(Text(e['email'].toString())),
-                            DataCell(
-                              IconButton(
-                                onPressed: () {},
-                                icon: const Icon(Icons.edit),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                      .toList()),
+          Expanded(
+            child: Container(
+              // height: 200,
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              // color: Colors.blue,
+              child: SingleChildScrollView(
+                child: DataTable(
+                    // showCheckboxColumn: true,
+                    showBottomBorder: true,
+                    columnSpacing: 2,
+                    columns: const [
+                      'Profil',
+                      'Nom',
+                      'Prenom',
+                      'Email',
+                      'Edit'
+                    ] //table headings
+                        .map(
+                          (e) => DataColumn(label: Text(e)),
+                        )
+                        .toList(),
+                    rows: users
+                        .map(
+                          (e) => DataRow(
+                            cells: [
+                              //table row cells values
+                              DataCell(CircleAvatar(
+                                  child: Text(
+                                      e["nom"].toString()[0].toUpperCase()))),
+                              DataCell(Text(e['nom'].toString())),
+                              DataCell(Text(e['prenom'].toString())),
+                              DataCell(Text(e['email'].toString())),
+                              DataCell(
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.edit),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                        .toList()),
+              ),
             ),
           )
         ]));
