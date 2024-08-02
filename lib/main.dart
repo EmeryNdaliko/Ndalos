@@ -1,11 +1,14 @@
 import 'package:essence_app/constantes/export.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() async {
+  Database data = Database();
+  if (await data.openConnection()) {
+    logger.i("La connexion reussi");
 
-const Color ciyan = Color(0x004994de); // Violet
+    runApp(const MyApp());
+  }
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -186,7 +189,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           leading: const Icon(Icons.logout),
                           title: const Text("Se deconnecter"),
                           onTap: () {
-                            this.deactivate();
+                            deactivate();
+                            print('object');
                           },
                         ),
                       ],

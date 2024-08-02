@@ -1,29 +1,9 @@
 import 'package:essence_app/constantes/export.dart';
+import 'package:essence_app/main.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/material.dart';
 
-List<Map<String, String>> users = [
-  {
-    "nom": "Emery",
-    "prenom": 'ndaliko',
-    "email": "emeryndalos@gmail.com",
-  },
-  {
-    "prenom": 'lionel',
-    "email": "lionel@gmail.com",
-    "nom": "lionel",
-  },
-  {
-    "prenom": 'muisa',
-    "email": "winner@gmail.com",
-    "nom": "tsongo",
-  },
-  {
-    "nom": "proms",
-    "prenom": 'ndaliko',
-    "email": "promsndal@gmail.com",
-  }
-];
+// liste des utilisateurs
+List<Map<String, dynamic>> users = [];
 
 class Utisateurs extends StatefulWidget {
   const Utisateurs({super.key});
@@ -32,18 +12,54 @@ class Utisateurs extends StatefulWidget {
   State<Utisateurs> createState() => _UtisateursState();
 }
 
+var database = Database();
+
 class _UtisateursState extends State<Utisateurs> {
   final nomControler = TextEditingController();
   final prenomControler = TextEditingController();
   final emailControler = TextEditingController();
 
-// add new user
-  void addUser(Map<String, String> user) {
+  @override
+  void initState() {
+    super.initState();
+    selectAll();
+  }
+
+// add new user=====================================================
+  Future addUser(Map<String, dynamic> user) async {
     users.add(user);
+    // ajout dune nouvelle utilisateur
+    try {
+      if (await database.openConnection()) {
+        database.instertCollection("Users", user);
+        logger.i("Ajout success");
+      }
+    } catch (e) {
+      logger.e(e.toString());
+    }
+  }
+
+  void addNewUser(Map<String, String> newUser) async {
+    await addUser(newUser);
+  }
+
+//----------------------------------------------------------------
+
+  // recuperation dans la base de donnes
+  Future<void> selectAll() async {
+    Database dbase = Database();
+    var collection = db.collection('Users');
+    if (await dbase.openConnection()) {
+      var data = await collection.find().toList();
+      setState(() {
+        users = data;
+      });
+      await db.close();
+    }
   }
 
   static final formkey = GlobalKey<FormState>();
-
+// affichage du dialog
   showDialogBox() => showDialog(
       context: context,
       builder: (context) => Form(
@@ -62,7 +78,7 @@ class _UtisateursState extends State<Utisateurs> {
                   };
 
                   setState(() {
-                    addUser(newUser);
+                    addNewUser(newUser);
                   });
                   Navigator.pop(context);
                   formkey.currentState!.reset();
@@ -156,8 +172,8 @@ class _UtisateursState extends State<Utisateurs> {
                     columnSpacing: 2,
                     columns: const [
                       'Profil',
-                      'Nom',
-                      'Prenom',
+                      'Noms',
+                      // 'Prenom',
                       'Email',
                       'Edit'
                     ] //table headings
@@ -173,8 +189,20 @@ class _UtisateursState extends State<Utisateurs> {
                               DataCell(CircleAvatar(
                                   child: Text(
                                       e["nom"].toString()[0].toUpperCase()))),
-                              DataCell(Text(e['nom'].toString())),
-                              DataCell(Text(e['prenom'].toString())),
+                              DataCell(Text(
+                                  e['nom'].toString()[0].toUpperCase() +
+                                      e['nom']
+                                          .toString()
+                                          .substring(1)
+                                          .toLowerCase() +
+                                      " " +
+                                      e['prenom'].toString()[0].toUpperCase() +
+                                      e['prenom']
+                                          .toString()
+                                          .substring(1)
+                                          .toLowerCase())),
+
+                              // DataCell(Text()),
                               DataCell(Text(e['email'].toString())),
                               DataCell(
                                 IconButton(

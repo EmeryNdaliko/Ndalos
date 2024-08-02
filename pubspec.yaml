@@ -41,6 +41,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   google_fonts: ^6.2.1
   mongo_dart: ^0.10.3
+  desktop_window: ^0.4.0
+  logger: ^2.4.0
 
 dev_dependencies:
   flutter_test:
