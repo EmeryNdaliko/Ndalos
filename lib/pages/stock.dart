@@ -68,9 +68,9 @@ class _StockState extends State<Stock> {
                   columnSpacing: 2,
                   columns: const [
                     '',
-                    'Noms',
+                    'Categorie',
                     // 'Prenom',
-                    'Email',
+                    'Quantite',
                     'Edit'
                   ] //table headings
                       .map(
@@ -85,14 +85,8 @@ class _StockState extends State<Stock> {
                             DataCell(CircleAvatar(
                                 child: Text(
                                     e["nom"].toString()[0].toUpperCase()))),
-                            DataCell(Text(e['nom'].toString()[0].toUpperCase() +
-                                e['nom'].toString().substring(1).toLowerCase() +
-                                " " +
-                                e['prenom'].toString()[0].toUpperCase() +
-                                e['prenom']
-                                    .toString()
-                                    .substring(1)
-                                    .toLowerCase())),
+                            DataCell(Text(
+                                "${e['nom'].toString()[0].toUpperCase()}${e['nom'].toString().substring(1).toLowerCase()} ${e['prenom'].toString()[0].toUpperCase()}${e['prenom'].toString().substring(1).toLowerCase()}")),
 
                             // DataCell(Text()),
                             DataCell(Text(e['email'].toString())),

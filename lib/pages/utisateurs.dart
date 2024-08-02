@@ -25,7 +25,8 @@ class _UtisateursState extends State<Utisateurs> {
     selectAll();
   }
 
-// add new user=====================================================
+  // add new user=====================================================
+
   Future addUser(Map<String, dynamic> user) async {
     users.add(user);
     // ajout dune nouvelle utilisateur
@@ -43,9 +44,10 @@ class _UtisateursState extends State<Utisateurs> {
     await addUser(newUser);
   }
 
-//----------------------------------------------------------------
+  //----------------------------------------------------------------
 
   // recuperation dans la base de donnes
+
   Future<void> selectAll() async {
     Database dbase = Database();
     var collection = db.collection('Users');

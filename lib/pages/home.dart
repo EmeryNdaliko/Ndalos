@@ -76,19 +76,17 @@ class HomePage extends StatelessWidget {
                         color: Colors.blue,
                         child: const Center(
                           child: Text(
-                            "Fournissurs",
+                            "Founisseurs",
                             style: TextStyle(fontWeight: FontWeight.w900),
                           ),
                         ),
                       ),
-                      Container(
-                        width: double.maxFinite,
-                        height: 50,
-                        color: Colors.blue,
-                        child: const Center(
+                      Expanded(
+                        child: Center(
                           child: Text(
-                            "Fournissurs",
-                            style: TextStyle(fontWeight: FontWeight.w900),
+                            fourniseurs.length.toString(),
+                            style: const TextStyle(
+                                fontSize: 40, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
